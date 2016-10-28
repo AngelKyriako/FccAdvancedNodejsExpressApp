@@ -1,0 +1,24 @@
+{
+	"version": "1.0.0",
+	"description": "Advanced nodejs/express tester app for free code camp",
+	"main": "server.js",
+	"scripts": {
+    "prestart": "npm install",
+		"start": "node server.js"
+	},
+	"dependencies": {
+    "express": "^4.4.5",
+    "static-expiry": "^0.0.11"
+	},
+	"engines": {
+		"node": "^6.9.1"
+	},  
+	"keywords": [
+		"freecodecamp",
+		"fcc",
+		"node",
+		"hyperdev",
+		"express"
+	],
+  "license": "ISC"
+}

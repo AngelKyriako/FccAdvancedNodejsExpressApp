@@ -1,6 +1,6 @@
 {
 	"version": "1.0.0",
-	"description": "Advanced nodejs/express challenges for free code camp",
+	"description": "Advanced nodejs/express app for free code camp",
 	"main": "server.js",
 	"scripts": {
     "prestart": "npm install",
@@ -21,7 +21,7 @@
     "pug": "^2.0.0-beta6",
     "request": "^2.75.0",
     "socket.io": "1.5.0",
-    "static-expiry": "0.0.11"
+    "static-expiry": "^0.0.11"
 	},
 	"engines": {
 		"node": "^6.9.1"

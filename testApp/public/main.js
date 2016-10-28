@@ -5,14 +5,18 @@ var consoleOutput = document.getElementById("console-output");
 challengeUrlInput.value = 'http://localhost:3000';
 consoleOutput.value = 'you may open the browser console for more info...';
 
-function logToConsole(log) {
+function logToConsole(log, isError) {
   consoleOutput.value += log + '\n';
+  if (isError) {
+    console.error(log);
+  } else {
+    console.info(log);
+  }
 }
 
 function assert(bool, text) {
   if (!bool) {
-    console.error(text);
-    return logToConsole('ASSERTION ERROR: ' + text);
+    return logToConsole('ASSERTION ERROR: ' + text, true);
   }
 }
 
@@ -21,7 +25,7 @@ function runTests() {
   var challengeId = Number(challengeIdInput.options[challengeIdInput.selectedIndex].value);
   var currentTest = -1;
 
-  var testManager = new TestManager(appUrl, challengeId, assert);
+  var tester = new ChallengeTester(appUrl, challengeId, assert);
 
   function runNextTest() {
     var test = tests[++currentTest];

@@ -1,6 +1,6 @@
 // use this: http://www.freeformatter.com/javascript-escape.html to escape the script for the fcc production site
 
-function TestManager(serverUrl, challengeId, assert) {
+function ChallengeTester(serverUrl, challengeId, assert) {
   
   var hostUrl = location.protocol + '//' + location.hostname;
   
@@ -26,7 +26,9 @@ function TestManager(serverUrl, challengeId, assert) {
     LOGOUT: getServerRoute('/auth/logout'),
     MESSAGE: getServerRoute('/api/message'),
     ME: getServerRoute('/api/me'),
-    GEO: getServerRoute('/api/geo')
+    GEO: getServerRoute('/api/geo'),
+    AVATAR_DEFAULT: getServerRoute('/avatar/default'),
+
   };
   
   var GUEST = new User({username: 'guestuser', password: 'guestuser', name: 'guest'});
@@ -573,7 +575,7 @@ function TestManager(serverUrl, challengeId, assert) {
           expectedUser: GUEST,
           expectedAuthed: true,
           autoLogout: false,
-          context: 'sign in before /api/message 200'
+          context: 'sign in before /api/message 201'
         });
         
         // test
@@ -707,9 +709,21 @@ function TestManager(serverUrl, challengeId, assert) {
 
   this.testDefaultAvatar = function testDefaultAvatar(done) {
     if (challengeId >= CHALLENGE.GET_DEFAULT_AVATAR) {
-      assert(false, 'can be tested only if internal server code is packaged to a fcc repo'); 
-      
-      if (done) done();
+
+      request('GET', ROUTE.AVATAR_DEFAULT, function onRemoteAvatarResponse() {
+        assert(this.status === 200, '/avatar/default should respond with status 200');
+        assert(this.responseText && this.responseText.length > 0, '/avatar/default should pipe the avatar image to the response');
+
+        var remoteAvatarText = this.responseText;
+        request('GET', '/default-avatar.png', function onThisAvatarResponse() {
+          assert(this.responseText === remoteAvatarText, '/avatar/default should pipe the avatar image as specified in the description');
+
+          console.info('/avatar/default tests passed');
+
+          if (done) done();
+        });
+        
+      });
       
     } else if (done){
       done();
