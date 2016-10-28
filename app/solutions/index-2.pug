@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    title simple chat
+
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+
+    link(rel='stylesheet', href='/index.css')
+
+    script(type='text/javascript', src='https://code.jquery.com/jquery-3.1.1.min.js')
+    
+    script(type='text/javascript', src='/lib/cookies.js')
+
+    script(type='text/javascript', src='/index.js')
+  body
+    .main.container
+      include partials/header.pug
+
+      // #challenge
+      // Only change code below this line.
+      
+      include partials/chatMessages.pug
+      
+      // Only change code above this line.
+      
+      include partials/authentication.pug
+      
+      include partials/footer.pug

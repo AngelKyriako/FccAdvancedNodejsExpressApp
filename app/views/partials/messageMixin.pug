@@ -1,0 +1,33 @@
+mixin message(user, message)
+
+  .message.row
+    .col-xs-12
+      if user && user._id.equals(message.creator.id)
+        .message-sent
+          .row
+            .col-xs-12
+              h4.message-name.pull-right= message.creator.name
+          .row
+            .col-xs-11
+              p.message-text.pull-right= message.text
+            .col-xs-1
+              img(src= message.creator.avatarUrl, width='40', height='40', alt='avatar').message-avatar.pull-right
+          .row
+            .col-xs-12
+              p.message-footer.pull-right= message.footer
+      else
+        .message-received
+          .row
+            .col-xs-12
+              h4.message-name= message.creator.name
+          .row
+            .col-xs-1
+              img(src= message.creator.avatarUrl, width='40', height='40', alt='avatar').message-avatar
+            .col-xs-10.col-xs-1-offset
+              p.message-text= message.text
+          .row
+            .col-xs-12
+              p.message-footer= message.footer
+
+      //cool seperators
+      h1

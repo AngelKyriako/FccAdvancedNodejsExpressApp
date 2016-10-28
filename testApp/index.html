@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FCC Back-end Tester</title>
+    <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div id="runner">
+      <input id="challenge-url-input" type="text" required placeholder="enter your server's url here"></input>
+
+      <input onclick="runTests()" type="button" value="Run Tests">
+
+      <select id="challenge-id-input">
+        <option value="1">for challenge 1</option>
+        <option value="2">for challenge 2</option>
+        <option value="3">for challenge 3</option>
+        <option value="4">for challenge 4</option>
+        <option value="5">for challenge 5</option>
+        <option value="6">for challenge 6</option>
+        <option value="7">for challenge 7</option>
+        <option value="8">for challenge 8</option>
+        <option value="9">for challenge 9</option>
+        <option value="10">for challenge 10</option>
+        <option value="11">for challenge 11</option>
+        <option value="12">for challenge 12</option>
+      </select>
+    </div>
+    
+    <textarea id="console-output" rows="15"> 
+    </textarea>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.0/socket.io.min.js"></script>
+    <script src="tests.js"></script>
+    <script src="testManager.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

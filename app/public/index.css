@@ -1,0 +1,108 @@
+body {
+  background: #efefef;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 30px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  margin: 0 0 15px;
+  padding: 0;
+}
+
+h1 {
+  border-bottom: 1px solid #ddd;
+  font-size: 2.5em;
+}
+
+h2 {
+  border-bottom: 1px solid #eee;
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+header {
+  text-align: center;
+}
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.message: {
+  margin-bottom: 20px;
+
+}
+
+.message-name {
+
+}
+
+.message-avatar {
+
+}
+
+.message-text {
+  max-width: 100%;
+  overflow:hidden;
+}
+
+.message-footer {
+  font-size: 0.9em;
+  color: gray;
+  font-style: italic;
+  margin: 0 0 15px;
+  padding: 0;
+  margin-top: 20px;
+}
+
+
+#chat-input {
+
+}
+
+#message-text-input {
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+}
+
+#message-send-btn {
+
+}
+
+#signup-local {
+  margin-bottom: 30px;
+}
+
+#signin-local {
+  margin-bottom: 30px;
+}
+
+#connect-social {
+  margin-bottom: 30px;
+}
+
+#signout {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}

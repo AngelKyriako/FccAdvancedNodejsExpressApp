@@ -1,0 +1,11 @@
+include ./messageMixin.pug
+
+.row
+  #chat-messages.col-sm-8.col-sm-offset-2
+    if messages
+      each msg in messages
+        +message(user, msg)
+
+  // hidden element to test user is passed into the page properly
+  if (user)
+    #user.hidden= JSON.stringify(user)

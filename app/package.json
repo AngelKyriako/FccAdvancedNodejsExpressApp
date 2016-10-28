@@ -1,0 +1,37 @@
+{
+	"version": "1.0.0",
+	"description": "Advanced nodejs/express challenges for free code camp",
+	"main": "server.js",
+	"scripts": {
+    "prestart": "npm install",
+		"start": "node server.js"
+	},
+	"dependencies": {
+    "fcc-advanced-nodejs-express-helper": "git+https://github.com/AngelKyriako/FccAdvancedNodejsExpressHelper.git",
+    "body-parser": "^1.4.3",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "express-session": "^1.14.1",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-strategy": "^1.0.0",
+    "pug": "^2.0.0-beta6",
+    "request": "^2.75.0",
+    "socket.io": "1.5.0",
+    "static-expiry": "0.0.11"
+	},
+	"engines": {
+		"node": "^6.9.1"
+	},  
+	"keywords": [
+		"freecodecamp",
+		"fcc",
+		"node",
+		"hyperdev",
+		"express"
+	],
+  "license": "ISC"
+}

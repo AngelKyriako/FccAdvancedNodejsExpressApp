@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    title simple chat
+
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+
+    link(rel='stylesheet', href='/index.css')
+
+    script(type='text/javascript', src='https://code.jquery.com/jquery-3.1.1.min.js')
+    
+    script(type='text/javascript', src='/lib/cookies.js')
+    
+    // #challenge
+    // Only change code below this line.
+
+    // socket io is served from the server's node.js module itself
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    
+    // Only change code above line.    
+
+    script(type='text/javascript', src='/index.js')
+  body
+    .main.container
+      include partials/header.pug
+
+      include partials/chatMessages.pug
+      
+      if user
+        include partials/chatInput.pug
+        include partials/signout.pug
+      else
+        include partials/authentication.pug
+
+      include partials/footer.pug

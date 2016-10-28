@@ -1,0 +1,17 @@
+body {
+  font-size: 20pt;
+}
+
+#runner {
+  display: block;
+  margin: auto;
+  width: 30%;
+  padding: 10px;
+}
+
+#console-output {
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
