@@ -25,10 +25,10 @@ function runTests() {
   var challengeId = Number(challengeIdInput.options[challengeIdInput.selectedIndex].value);
   var currentTest = -1;
 
-  var tester = new ChallengeTester(appUrl, challengeId, assert);
+  eval(seeds.before);
 
   function runNextTest() {
-    var test = tests[++currentTest];
+    var test = seeds.tests[++currentTest];
     if (test) {
       logToConsole('running test: ' + test.text);
       eval(test.testString);

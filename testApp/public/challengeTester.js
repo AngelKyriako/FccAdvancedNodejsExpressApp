@@ -1,4 +1,6 @@
-// use this: http://www.freeformatter.com/javascript-escape.html to escape the script for the fcc production site
+// use this: http://www.freeformatter.com/javascript-escape.html
+// to escape the script. Set the beforeTestsString variable in
+// the seeds.js to escaped string  
 
 function ChallengeTester(serverUrl, challengeId, assert) {
   
@@ -730,4 +732,6 @@ function ChallengeTester(serverUrl, challengeId, assert) {
     }
   };
   
-};
+}
+
+var tester = new ChallengeTester(appUrl, challengeId, assert);
