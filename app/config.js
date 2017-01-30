@@ -8,15 +8,17 @@ var self = {
 
   port: process.env.PORT || 3000,
 
-  ssl: true,
-
+  ssl: process.env.SSL != 'false',
+  
   auth: {
 
     local: {
       saltRounds: 10
     },
 
-    // not needed
+    // not currently used
+    //
+    // difficult to be unit tested  & setup ...to be continued.
     //
     // facebook: {
     //   clientID: process.env.FACEBOOK_CLIENT_ID || '1078155265586289',
@@ -34,7 +36,7 @@ var self = {
   },
 
   db: {
-    mongoUrl: process.env.MONGO_URL || 'mongodb://admin:admin123@localhost:27017/test?poolSize=20'
+    mongoUrl: process.env.MONGO_URL || 'mongodb://fccuser:fccuser123@ds033976.mlab.com:33976/fcc-node-advanced-challenges'
   },
 
   session: {

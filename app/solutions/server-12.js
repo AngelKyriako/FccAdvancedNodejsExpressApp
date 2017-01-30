@@ -323,12 +323,22 @@ app.get('/api/geo',
       } else {
   
         // set cookie header
-        // once the client receives this response, they will create a cookie with these data and options
+        // once the client receives this response, they will create a cookie with these data and options:
+        //
+        // domain	String	Domain name for the cookie. Defaults to the domain name of the app.
+        // encode	Function	A synchronous function used for cookie value encoding. Defaults to encodeURIComponent.
+        // expires	Date	Expiry date of the cookie in GMT. If not specified or set to 0, creates a session cookie.
+        // httpOnly	Boolean	Flags the cookie to be accessible only by the web server.
+        // maxAge	Number	Convenient option for setting the expiry time relative to the current time in milliseconds.
+        // path	String	Path for the cookie. Defaults to “/”.
+        // secure	Boolean	Marks the cookie to be used with HTTPS only.
+        // signed	Boolean	Indicates if the cookie should be signed.        
+        //
         res.cookie('geo', data, {
           // 5 days is long enough even for frequent travelers 
           maxAge: 1000 * 60 * 60 * 24 * 5
           // https only
-         ,secure: true
+         ,secure: config.SSL
         });
         
         res.status(200).json(data);

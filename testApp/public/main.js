@@ -2,7 +2,7 @@ var challengeIdInput = document.getElementById("challenge-id-input");
 var challengeUrlInput = document.getElementById("challenge-url-input");
 var consoleOutput = document.getElementById("console-output");
 
-challengeUrlInput.value = 'http://localhost:3000';
+challengeUrlInput.value = 'https://luminous-dart.gomix.me';
 consoleOutput.value = 'you may open the browser console for more info...';
 
 function logToConsole(log, isError) {
@@ -25,19 +25,22 @@ function runTests() {
   var challengeId = Number(challengeIdInput.options[challengeIdInput.selectedIndex].value);
   var currentTest = -1;
 
-  eval(seeds.before);
-
+  eval(testSkeleton.before);
+  var count = 0;
   function runNextTest() {
-    var test = seeds.tests[++currentTest];
+    var test = testSkeleton.tests[++currentTest];
     if (test) {
       logToConsole('running test: ' + test.text);
+      if (count++) {
+        logToConsole('FINISHED');
+      }
       eval(test.testString);
     } else {
       logToConsole('');
-      logToConsole('tests finished');
+      logToConsole(count + ' TESTS FINISHED');
     }
   }
 
-  consoleOutput.value += '\n\n';
+  logToConsole('\n');
   runNextTest();
 }

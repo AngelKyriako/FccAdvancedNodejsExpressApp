@@ -478,7 +478,8 @@ app.get('/api/geo',
         next(err);
       } else {
         if (req.query.hasOwnProperty('setcookie')) {
-          // options
+          // set cookie header
+          // once the client receives this response, they will create a cookie with these data and options:
           //
           // domain	String	Domain name for the cookie. Defaults to the domain name of the app.
           // encode	Function	A synchronous function used for cookie value encoding. Defaults to encodeURIComponent.
@@ -487,10 +488,11 @@ app.get('/api/geo',
           // maxAge	Number	Convenient option for setting the expiry time relative to the current time in milliseconds.
           // path	String	Path for the cookie. Defaults to “/”.
           // secure	Boolean	Marks the cookie to be used with HTTPS only.
-          // signed	Boolean	Indicates if the cookie should be signed.
+          // signed	Boolean	Indicates if the cookie should be signed.        
+          //
           res.cookie('geo', JSON.stringify(data), {
             maxAge: 1000 * 60 * 60 * 24 * 5 // 5 days
-            , secure: true
+            ,secure: config.SSL
           });
         }
         res.status(200).json(data);

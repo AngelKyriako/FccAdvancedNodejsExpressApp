@@ -17,6 +17,6 @@ app.use(expiry(app, {
 app.use('/', express.static(staticDir));
 
 
-httpServer.listen(3001, '0.0.0.0', function onStart(req, res) {
-  console.info('test application is listening at uri: http://localhost:3001');
+httpServer.listen(3334, '0.0.0.0', function onStart(req, res) {
+  console.info('test application is listening at uri: http://localhost:3334');
 });

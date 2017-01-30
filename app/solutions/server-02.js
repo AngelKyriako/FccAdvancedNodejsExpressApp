@@ -1,6 +1,6 @@
 // challenge-2: pass arguments to the view engine
 //
-// Good job, now we are rendering our index page from the page. However, this have no value if we cannot tell the
+// Good job, now we are rendering our index page from the server. However, this has no value if we cannot tell the
 // view engine what to render. We can do this by passing some arguments on the res.render function we created before.
 //
 // Lets pass some chat messages to render.
