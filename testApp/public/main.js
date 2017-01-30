@@ -2,8 +2,9 @@ var challengeIdInput = document.getElementById("challenge-id-input");
 var challengeUrlInput = document.getElementById("challenge-url-input");
 var consoleOutput = document.getElementById("console-output");
 
+var testsInProgress = false;
 challengeUrlInput.value = 'https://luminous-dart.gomix.me';
-consoleOutput.value = 'you may open the browser console for more info...';
+consoleOutput.value = '';
 
 function logToConsole(log, isError) {
   consoleOutput.value += log + '\n';
@@ -14,6 +15,8 @@ function logToConsole(log, isError) {
   }
 }
 
+logToConsole('you may open the browser console for more info...');
+
 function assert(bool, text) {
   if (!bool) {
     return logToConsole('ASSERTION ERROR: ' + text, true);
@@ -21,26 +24,33 @@ function assert(bool, text) {
 }
 
 function runTests() {
+  if (testsInProgress) {
+    return logToConsole('CHILL: tests currently running, wait util they are finished');
+  }
+
+  testsInProgress = true;
   var appUrl = challengeUrlInput.value.trim();
   var challengeId = Number(challengeIdInput.options[challengeIdInput.selectedIndex].value);
   var currentTest = -1;
 
+  logToConsole('\ninitializing challenge tester object...\n');
   eval(testSkeleton.before);
-  var count = 0;
+
   function runNextTest() {
     var test = testSkeleton.tests[++currentTest];
+    if (currentTest) {
+      logToConsole('\tDone\n');
+    }    
     if (test) {
-      logToConsole('running test: ' + test.text);
-      if (count++) {
-        logToConsole('FINISHED');
-      }
+      logToConsole('Running test #' + (currentTest+1) + ': ' + test.text);
       eval(test.testString);
     } else {
       logToConsole('');
-      logToConsole(count + ' TESTS FINISHED');
+      logToConsole('Tests finished, check for assertion logs');
+      testsInProgress = false;
     }
+    consoleOutput.scrollTop = consoleOutput.scrollHeight;
   }
 
-  logToConsole('\n');
   runNextTest();
 }
